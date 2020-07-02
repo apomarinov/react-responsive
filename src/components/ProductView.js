@@ -58,8 +58,8 @@ const ProductView = (props) => {
                         justify="space-around"
                         spacing={2}
                     >
-                        {productList.map((product, index) =>
-                            <Grid key={product.id} item sm={6}>
+                        {productList.map((product) =>
+                            <Grid key={product.id} item xs={12} md={6} lg={12}>
                                 <ProductLarge product={product}/>
                             </Grid>
                         )}

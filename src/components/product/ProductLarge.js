@@ -7,27 +7,8 @@ import useStyles from "./styles";
 import Description from "./Description";
 import Buttons from "./Buttons";
 import Details from "./Details";
-import Stock from "../common/Stock";
-import Price from "../common/price/Price";
-import PriceSegment from "../common/price/PriceSegment";
 
-const ProductLarge = (props) => {
-    const {
-        product
-    } = props;
-    const classes = useStyles();
-    const isTablet = isWidthDown('md', props.width);
-    const detailsCols = isTablet ? 12 : 6;
-
-    const [quantity, setQuantity] = useState(1);
-    const modifyQuantity = (value) => {
-        let modified = quantity + value;
-        if (modified > product.stock.quantity) {
-            return;
-        }
-        setQuantity(modified < 1 ? 1 : modified);
-    }
-
+const getPriceDetails = (product, quantity, singleLinePrice) => {
     let useSingleLineTotal = false;
     const price = product.price.value;
     const currency = product.price.currency;
@@ -42,14 +23,32 @@ const ProductLarge = (props) => {
     }
     const priceText = currency + price;
     const totalText = currency + total;
-    const singleLinePrice = !isWidthDown('md', props.width);
-    const priceDetails = {
+    return {
         singleLinePrice,
         priceText,
         useSingleLineTotal,
         totalText,
         savingsText
     };
+}
+
+const ProductLarge = (props) => {
+    const {
+        product
+    } = props;
+    const classes = useStyles();
+    const isTablet = isWidthDown('md', props.width);
+    const [quantity, setQuantity] = useState(1);
+    const priceDetails = getPriceDetails(product, quantity, !isTablet);
+
+
+    const modifyQuantity = (value) => {
+        let modified = quantity + value;
+        if (modified > product.stock.quantity) {
+            return;
+        }
+        setQuantity(modified < 1 ? 1 : modified);
+    }
 
     return (
         <div className={classes.root}>
@@ -99,10 +98,10 @@ const ProductLarge = (props) => {
                                         className={classes.details}
                                         spacing={1}
                                     >
-                                        <Grid item xs={detailsCols}>
+                                        <Grid item xs={12} lg={6}>
                                             <Description product={product}/>
                                         </Grid>
-                                        <Grid item xs={detailsCols}>
+                                        <Grid item xs={12} lg={6}>
                                             <Details product={product} quantity={quantity} price={priceDetails}/>
                                         </Grid>
                                     </Grid>
