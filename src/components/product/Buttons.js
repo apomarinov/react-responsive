@@ -5,13 +5,13 @@ import CustomButton from "../CustomButton";
 import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
 import AddCircleIcon from '@material-ui/icons/AddCircle';
 import IconSuperscript from "../IconSuperscript";
-import NotificationsIcon from '@material-ui/icons/Notifications';
+import QuantitySelector from "../QuanitySelector";
 
 
 
 const Buttons = (props) => {
     const {
-        product
+        quantity
     } = props;
     const classes = useStyles();
     return (
@@ -23,14 +23,18 @@ const Buttons = (props) => {
                 alignItems="center"
                 spacing={1}
             >
-                <Grid item>
-                    <CustomButton
-                        variant="contained"
-                        color="default"
-                        className={classes.button}
-                        startIcon={<NotificationsIcon/>}
-                        inverted
-                        noMargin
+                <Grid item xs={1}>
+                    {/*<CustomButton*/}
+                    {/*    variant="contained"*/}
+                    {/*    color="default"*/}
+                    {/*    className={classes.button}*/}
+                    {/*    startIcon={<NotificationsIcon/>}*/}
+                    {/*    inverted*/}
+                    {/*    noMargin*/}
+                    {/*/>*/}
+                    <QuantitySelector
+                        quantity={quantity}
+                        onChange={props.modifyQuantity}
                     />
                 </Grid>
                 <Grid item>

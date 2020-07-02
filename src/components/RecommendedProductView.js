@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme) =>
                 display: 'flex'
             },
             gridList: {
+                marginBottom: 0,
                 flexWrap: 'nowrap',
                 transform: 'translateZ(0)',
             }

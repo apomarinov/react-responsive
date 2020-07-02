@@ -32,6 +32,12 @@ const Icons = (classes) => ({
     out: () => (<CheckCircleIcon className={`${classes.out} ${classes.icon}`} />),
 });
 
+const Status = {
+  FULL: 'full',
+  DEPLETING: 'depleting',
+  OUT: 'out',
+};
+
 const Stock = (props) => {
     const {
         data
@@ -41,6 +47,10 @@ const Stock = (props) => {
     const sameLineIcon = isTabletLandscape || data.description?.length > 0;
     const icon = Icons(classes)[data.status]();
     const marginClass = !sameLineIcon ? classes.iconMargin : '';
+    let description = data.description;
+    if (data.status === Status.DEPLETING) {
+        description = data.quantity + description;
+    }
     return (
         <React.Fragment>
             <div>
@@ -51,7 +61,7 @@ const Stock = (props) => {
                 {!sameLineIcon && icon}
             </div>
             {data.description && (
-                <span className={classes[data.status]}>{data.description}</span>
+                <span className={classes[data.status]}>{description}</span>
             )}
         </React.Fragment>
     );

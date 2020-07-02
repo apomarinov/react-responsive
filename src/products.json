@@ -5,7 +5,7 @@
     "isApproved": false,
     "isProductOfTheYear": false,
     "image": "/images/product.png",
-    "recommendedText": "",
+    "badgeText": "",
     "descriptionShort": "195/55 R15 85V SUV",
     "price": {
       "value": 340,
@@ -25,8 +25,9 @@
       ],
       "description": [
         "Back in 1 week!",
-        "8 Tires left"
-      ]
+        " Tires left"
+      ],
+      "quantity": 0
     }
   },
   "recommended": [
@@ -34,7 +35,7 @@
       "id": 1,
       "isApproved": true,
       "isProductOfTheYear": true,
-      "recommendedText": "Premium Bestseller",
+      "badgeText": "Premium Bestseller",
       "name": "Continental Contiecocontact 5",
       "descriptionShort": "205/55 R16 H SUV",
       "stock": {
@@ -46,11 +47,12 @@
       "id":  2,
       "isApproved": true,
       "isProductOfTheYear": true,
-      "recommendedText": "Economy Bestseller",
+      "badgeText": "Economy Bestseller",
       "descriptionShort": "205/55 R16 H SUV",
       "stock":  {
         "status": "depleting",
-        "description": "8 Tires left"
+        "description": " Tires left",
+        "quantity": 8
       }
     }
   ],

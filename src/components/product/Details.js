@@ -8,7 +8,8 @@ import Price from "../common/Price";
 
 const Details = withWidth()((props) => {
     const {
-        product
+        product,
+        quantity
     } = props;
     const isTablet = isWidthDown('md', props.width);
     return (
@@ -23,7 +24,7 @@ const Details = withWidth()((props) => {
                     <Grid item>
                         <Stock data={product.stock}/>
                     </Grid>
-                    <Price product={product}/>
+                    <Price product={product} quantity={quantity}/>
                 </Grid>
             ) : (
                 <Grid
@@ -32,7 +33,7 @@ const Details = withWidth()((props) => {
                     alignItems="center"
                     justify="space-around"
                 >
-                    <Price singleLinePrice product={product}>
+                    <Price singleLinePrice product={product} quantity={quantity}>
                         <Stock data={product.stock}/>
                     </Price>
                 </Grid>

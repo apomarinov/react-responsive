@@ -27,10 +27,9 @@ const Price = (props) => {
     const useSingleLineTotal = quantity && product.discount?.modifier > 0;
     const price = product.price.value;
     const currency = product.price.currency;
-    let total = price;
+    let total = price * quantity;
     let savingsText = null;
     if (quantity >= product.discount?.condition?.quantity) {
-        total *= quantity;
         let savings = total;
         total *= product.discount.modifier;
         savings -= total;
