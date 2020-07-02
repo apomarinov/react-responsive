@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) =>
             color: theme.colors.button.background
         },
         out: {
-            color: 'red'
+            color: '#8E1216'
         },
         icon: {
             fontSize: '15px',
@@ -32,7 +32,7 @@ const Icons = (classes) => ({
     out: () => (<CheckCircleIcon className={`${classes.out} ${classes.icon}`} />),
 });
 
-const Status = {
+export const Status = {
   FULL: 'full',
   DEPLETING: 'depleting',
   OUT: 'out',

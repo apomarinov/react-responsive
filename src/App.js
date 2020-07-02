@@ -6,8 +6,6 @@ import {
     ThemeProvider,
 } from '@material-ui/core/styles';
 import ProductView from "./components/ProductView";
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import {createStyles} from "@material-ui/core";
 import Container from "@material-ui/core/Container";
 
 const theme = createMuiTheme({
@@ -29,23 +27,14 @@ const theme = createMuiTheme({
     }
 })
 
-const useStyles = makeStyles((theme) =>
-    createStyles({
-        main: {
-            // width: '100%'
-        }
-    }),
-);
-
 function App() {
-    const classes = useStyles();
     return (
         <div className="App">
             <ThemeProvider theme={theme}>
                 <header>
                     <Navigation/>
                 </header>
-                <main className={classes.main}>
+                <main>
                     <Container disableGutters={false} maxWidth={false}>
                         <ProductView title="Recommended Products"/>
                     </Container>

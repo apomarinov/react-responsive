@@ -38,6 +38,9 @@ const ProductView = (props) => {
                 <Grid item xs={12}>
                     <RecommendedProductView products={recommendedProducts}/>
                 </Grid>
+                <Grid item xs={12}>
+
+                </Grid>
             </Grid>
         </React.Fragment>
     );

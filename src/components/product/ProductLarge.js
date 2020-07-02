@@ -83,6 +83,7 @@ const ProductLarge = (props) => {
                                     <Grid item>
                                         <Buttons
                                             modifyQuantity={modifyQuantity}
+                                            product={product}
                                             quantity={quantity}
                                         />
                                     </Grid>
@@ -94,6 +95,7 @@ const ProductLarge = (props) => {
                                 <Buttons
                                     modifyQuantity={modifyQuantity}
                                     quantity={quantity}
+                                    product={product}
                                 />
                             </Grid>
                         )}
