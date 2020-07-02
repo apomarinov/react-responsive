@@ -7,6 +7,9 @@ import useStyles from "./styles";
 import Description from "./Description";
 import Buttons from "./Buttons";
 import Details from "./Details";
+import Stock from "../common/Stock";
+import Price from "../common/price/Price";
+import PriceSegment from "../common/price/PriceSegment";
 
 const ProductLarge = (props) => {
     const {
@@ -24,6 +27,29 @@ const ProductLarge = (props) => {
         }
         setQuantity(modified < 1 ? 1 : modified);
     }
+
+    let useSingleLineTotal = false;
+    const price = product.price.value;
+    const currency = product.price.currency;
+    let total = price * quantity;
+    let savingsText = null;
+    if (quantity >= product.discount?.condition?.quantity) {
+        useSingleLineTotal = true;
+        let savings = total;
+        total *= product.discount.modifier;
+        savings -= total;
+        savingsText = `Save ${currency + savings}!`;
+    }
+    const priceText = currency + price;
+    const totalText = currency + total;
+    const singleLinePrice = !isWidthDown('md', props.width);
+    const priceDetails = {
+        singleLinePrice,
+        priceText,
+        useSingleLineTotal,
+        totalText,
+        savingsText
+    };
 
     return (
         <div className={classes.root}>
@@ -77,7 +103,7 @@ const ProductLarge = (props) => {
                                             <Description product={product}/>
                                         </Grid>
                                         <Grid item xs={detailsCols}>
-                                            <Details product={product} quantity={quantity}/>
+                                            <Details product={product} quantity={quantity} price={priceDetails}/>
                                         </Grid>
                                     </Grid>
                                 </Grid>

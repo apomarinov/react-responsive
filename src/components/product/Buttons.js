@@ -1,22 +1,14 @@
-import useStyles from "./styles";
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import CustomButton from "../CustomButton";
-import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import IconSuperscript from "../IconSuperscript";
 import QuantitySelector from "../QuanitySelector";
 import {Status} from "../common/Stock";
-
-
+import AddToCartButton from "../common/buttons/AddToCartButton";
 
 const Buttons = (props) => {
     const {
         quantity,
         product
     } = props;
-    const classes = useStyles();
     return (
         <React.Fragment>
             <Grid
@@ -33,30 +25,7 @@ const Buttons = (props) => {
                     />
                 </Grid>
                 <Grid item>
-                    {product.stock.status !== Status.OUT ? (
-                        <CustomButton
-                            variant="contained"
-                            color="default"
-                            className={classes.button}
-                            startIcon={
-                                <IconSuperscript
-                                    icon={<ShoppingCartSharpIcon fontSize="small"/>}
-                                    superscript={<AddCircleIcon style={{ fontSize: 13 }}/>}
-                                />
-                            }
-                        >
-                            Add to Cart
-                        </CustomButton>
-                    ) : (
-                        <CustomButton
-                            variant="contained"
-                            color="default"
-                            className={classes.button}
-                            startIcon={<NotificationsIcon/>}
-                            inverted
-                            noMargin
-                        />
-                    )}
+                    <AddToCartButton inStock={product.stock.status !== Status.OUT}/>
                 </Grid>
             </Grid>
         </React.Fragment>

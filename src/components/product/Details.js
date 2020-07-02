@@ -3,41 +3,36 @@ import {createStyles, isWidthDown} from "@material-ui/core";
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Stock from "../common/Stock";
-import Price from "../common/Price";
+import Price from "../common/price/Price";
+import PriceSegment from "../common/price/PriceSegment";
 
 
 const Details = withWidth()((props) => {
     const {
         product,
-        quantity
+        quantity,
+        price
     } = props;
     const isTablet = isWidthDown('md', props.width);
     return (
         <React.Fragment>
-            {isTablet ? (
-                <Grid
-                    container
-                    direction="row"
-                    alignItems="center"
-                    justify="space-between"
-                >
+            <Grid
+                container
+                direction="row"
+                alignItems="center"
+                justify={isTablet ? "space-between" : "space-around"}
+            >
+                {isTablet && (
                     <Grid item>
                         <Stock data={product.stock}/>
                     </Grid>
-                    <Price product={product} quantity={quantity}/>
-                </Grid>
-            ) : (
-                <Grid
-                    container
-                    direction="row"
-                    alignItems="center"
-                    justify="space-around"
-                >
-                    <Price singleLinePrice product={product} quantity={quantity}>
+                )}
+                <Price product={product} quantity={quantity} {...price}>
+                    {!isTablet && (
                         <Stock data={product.stock}/>
-                    </Price>
-                </Grid>
-            )}
+                    )}
+                </Price>
+            </Grid>
         </React.Fragment>
     );
 });
