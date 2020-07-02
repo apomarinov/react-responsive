@@ -57,6 +57,40 @@
     }
   ],
   "list": [
-
+    {
+      "id":  12,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "depleting",
+        "description": " Tires left",
+        "quantity": 8
+      }
+    },
+    {
+      "id":  13,
+      "isApproved": true,
+      "image": null,
+      "stock": {
+        "status": "full"
+      }
+    },
+    {
+      "id":  14,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "out",
+        "description": "Back in 1 week!"
+      }
+    },
+    {
+      "id":  15,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "full"
+      }
+    }
   ]
 }

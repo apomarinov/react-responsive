@@ -28,7 +28,7 @@ const ProductLarge = (props) => {
     return (
         <div className={classes.root}>
             <Paper elevation={0} square>
-                {product.badgeText?.length && (
+                {product.badgeText?.length > 0 && (
                     <React.Fragment>
                         <span className={classes.clipMask}/>
                         <span className={classes.badgeText}>{product.badgeText}</span>
@@ -43,14 +43,16 @@ const ProductLarge = (props) => {
                         justify="flex-start"
                         spacing={0}
                     >
-                        <Grid item xs={4}>
-                            <div className={classes.cover}>
-                                <img src={product.image} alt={product.name} className={classes.image}/>
-                                {product.isProductOfTheYear && (
-                                    <img src="images/product-of-the-year.png" alt="Product of The Year" className={classes.productOfTheYearBadge}/>
-                                )}
-                            </div>
-                        </Grid>
+                        {product.image && (
+                            <Grid item xs={4}>
+                                <div className={classes.cover}>
+                                    <img src={product.image} alt={product.name} className={classes.image}/>
+                                    {product.isProductOfTheYear && (
+                                        <img src="images/product-of-the-year.png" alt="Product of The Year" className={classes.productOfTheYearBadge}/>
+                                    )}
+                                </div>
+                            </Grid>
+                        )}
                         <Grid item xs={8} className={classes.productInfo}>
                             <Grid
                                 container
