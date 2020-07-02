@@ -1,14 +1,16 @@
 {
   "product": {
     "id": 0,
-    "name": "Continental PremiumContact&trade; 6",
+    "name": "Continental PremiumContact™ 6",
     "isApproved": false,
     "isProductOfTheYear": false,
-    "image": "images/product.png",
+    "image": "/images/product.png",
     "recommendedText": "",
     "descriptionShort": "195/55 R15 85V SUV",
-    "price": 340,
-    "currency": "&#x20AA;",
+    "price": {
+      "value": 340,
+      "currency": "₪"
+    },
     "discount": {
       "condition": {
         "quantity": 8
@@ -33,17 +35,22 @@
       "isApproved": true,
       "isProductOfTheYear": true,
       "recommendedText": "Premium Bestseller",
+      "name": "Continental Contiecocontact 5",
+      "descriptionShort": "205/55 R16 H SUV",
       "stock": {
         "status": "full"
-      }
+      },
+      "discount": null
     },
     {
       "id":  2,
       "isApproved": true,
       "isProductOfTheYear": true,
       "recommendedText": "Economy Bestseller",
+      "descriptionShort": "205/55 R16 H SUV",
       "stock":  {
-        "status": "full"
+        "status": "depleting",
+        "description": "8 Tires left"
       }
     }
   ],
