@@ -5,7 +5,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import withWidth from "@material-ui/core/withWidth";
 import SearchButton from "./SearchButton";
 
-
 const useStyles = makeStyles((theme) =>
     createStyles({
         input: {

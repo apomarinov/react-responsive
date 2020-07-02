@@ -1,7 +1,13 @@
 import useStyles from "./styles";
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
+import CustomButton from "../CustomButton";
+import ShoppingCartSharpIcon from "@material-ui/icons/ShoppingCartSharp";
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import IconSuperscript from "../IconSuperscript";
+import NotificationsIcon from '@material-ui/icons/Notifications';
+
+
 
 const Buttons = (props) => {
     const {
@@ -18,14 +24,29 @@ const Buttons = (props) => {
                 spacing={1}
             >
                 <Grid item>
-                    <Button variant="contained" color="primary">
-                        Primary
-                    </Button>
+                    <CustomButton
+                        variant="contained"
+                        color="default"
+                        className={classes.button}
+                        startIcon={<NotificationsIcon/>}
+                        inverted
+                        noMargin
+                    />
                 </Grid>
                 <Grid item>
-                    <Button variant="contained" color="primary">
-                        Primary
-                    </Button>
+                    <CustomButton
+                        variant="contained"
+                        color="default"
+                        className={classes.button}
+                        startIcon={
+                            <IconSuperscript
+                                icon={<ShoppingCartSharpIcon fontSize="small"/>}
+                                superscript={<AddCircleIcon style={{ fontSize: 13 }}/>}
+                            />
+                        }
+                    >
+                        Add to Cart
+                    </CustomButton>
                 </Grid>
             </Grid>
         </React.Fragment>
