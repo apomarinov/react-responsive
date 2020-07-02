@@ -1,0 +1,53 @@
+{
+  "product": {
+    "id": 0,
+    "name": "Continental PremiumContact&trade; 6",
+    "isApproved": false,
+    "isProductOfTheYear": false,
+    "image": "images/product.png",
+    "recommendedText": "",
+    "descriptionShort": "195/55 R15 85V SUV",
+    "price": 340,
+    "currency": "&#x20AA;",
+    "discount": {
+      "condition": {
+        "quantity": 8
+      },
+      "modifier": 0.85
+    },
+    "stock": {
+      "status": [
+        "full",
+        "depleting",
+        "out"
+      ],
+      "description": [
+        "Back in 1 week!",
+        "8 Tires left"
+      ]
+    }
+  },
+  "recommended": [
+    {
+      "id": 1,
+      "isApproved": true,
+      "isProductOfTheYear": true,
+      "recommendedText": "Premium Bestseller",
+      "stock": {
+        "status": "full"
+      }
+    },
+    {
+      "id":  2,
+      "isApproved": true,
+      "isProductOfTheYear": true,
+      "recommendedText": "Economy Bestseller",
+      "stock":  {
+        "status": "full"
+      }
+    }
+  ],
+  "list": [
+
+  ]
+}

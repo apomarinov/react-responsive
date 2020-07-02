@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) =>
             position: "relative",
             width: '93%',
             "& div": {
-                backgroundColor: theme.colors.buttonBackground,
+                backgroundColor: theme.colors.button.background,
                 position: "absolute",
                 right: "-16px",
                 border: "none",

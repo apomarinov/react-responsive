@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) =>
             paddingTop: '5px'
         },
         customBadge: {
-            backgroundColor: theme.colors.buttonBackground,
+            backgroundColor: theme.colors.button.background,
         }
     }),
 );
@@ -42,55 +42,53 @@ const Navigation = (props) => {
     const isMobile = isWidthDown('xs', props.width);
     return (
         <React.Fragment>
-            <header>
+            <Grid
+                component="nav"
+                className={classes.nav}
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="center"
+            >
+                <Grid item className={classes.navSection}>
+                    <div className={classes.logo}/>
+                </Grid>
                 <Grid
-                    component="nav"
-                    className={classes.nav}
-                    container
-                    direction="row"
-                    justify="space-between"
-                    alignItems="center"
-                >
+                    item
+                    className={`${classes.navSection} ${classes.searchField}`}
+                    xs={hideButtons ? 9 : 1 }
+                    sm={4}>
+                    <SearchField onShowMobile={() => setHideButtons(true)}/>
+                </Grid>
+                {(!hideButtons || !isMobile) && (
                     <Grid item className={classes.navSection}>
-                        <div className={classes.logo}/>
-                    </Grid>
-                    <Grid
-                        item
-                        className={`${classes.navSection} ${classes.searchField}`}
-                        xs={hideButtons ? 9 : 1 }
-                        sm={4}>
-                        <SearchField onShowMobile={() => setHideButtons(true)}/>
-                    </Grid>
-                    {(!hideButtons || !isMobile) && (
-                        <Grid item className={classes.navSection}>
-                            <Grid
-                                container
-                                direction="row"
-                                alignItems="center"
-                            >
-                                <Grid item>
-                                    <NavButton text={"Account"}>
-                                        <PersonIcon fontSize="large"/>
-                                    </NavButton>
-                                </Grid>
-                                <Grid item>
-                                    <NavButton text={"Orders"}>
-                                        <DescriptionSharpIcon fontSize="large"/>
-                                    </NavButton>
-                                </Grid>
-                                <Grid item>
+                        <Grid
+                            container
+                            direction="row"
+                            alignItems="center"
+                        >
+                            <Grid item>
+                                <NavButton text={"Account"}>
+                                    <PersonIcon fontSize="large"/>
+                                </NavButton>
+                            </Grid>
+                            <Grid item>
+                                <NavButton text={"Orders"}>
+                                    <DescriptionSharpIcon fontSize="large"/>
+                                </NavButton>
+                            </Grid>
+                            <Grid item>
 
-                                    <NavButton text={"Cart"}>
-                                        <Badge color="error" variant="dot" classes={{ badge: classes.customBadge }}>
-                                            <ShoppingCartSharpIcon fontSize="large"/>
-                                        </Badge>
-                                    </NavButton>
-                                </Grid>
+                                <NavButton text={"Cart"}>
+                                    <Badge color="error" variant="dot" classes={{ badge: classes.customBadge }}>
+                                        <ShoppingCartSharpIcon fontSize="large"/>
+                                    </Badge>
+                                </NavButton>
                             </Grid>
                         </Grid>
-                    )}
-                </Grid>
-            </header>
+                    </Grid>
+                )}
+            </Grid>
         </React.Fragment>
     );
 }
