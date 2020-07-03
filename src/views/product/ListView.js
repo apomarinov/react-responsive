@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles, isWidthDown, isWidthUp} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
@@ -34,24 +34,41 @@ const useStyles = makeStyles((theme) =>
     }),
 );
 
+const GetProductList = (dataSource, from, to) => {
+    return dataSource.list.slice(from, to).map((product) => {
+        return Object.assign(Object.create(dataSource.product), product);
+    })
+};
+
 const ListView = (props) => {
     const {
         title,
         theme
     } = props;
     const classes = useStyles();
-    let page = 1;
+    const [page, setPage] = useState(1);
+    const [showLoadMoreButton, setShowLoadMoreButton] = useState(true);
+    const recommendedProducts = dataSource.recommended.map((product) => {
+        return Object.assign(Object.create(dataSource.product), product);
+    });
+
     let itemsPerPage = 3;
     if (isWidthUp('md', props.width) && isWidthDown('md', props.width)) {
         itemsPerPage = 4;
     }
+    const [productList, setProductList] = useState(GetProductList(dataSource, 0, itemsPerPage));
 
-    const recommendedProducts = dataSource.recommended.map((product) => {
-        return Object.assign(Object.create(dataSource.product), product);
-    });
-    const productList = dataSource.list.slice(0, itemsPerPage).map((product) => {
-        return Object.assign(Object.create(dataSource.product), product);
-    });
+    const loadMoreResults = () => {
+        let next = page + 1;
+        let newPage = GetProductList(dataSource, 0, itemsPerPage * next);
+        let nextPage = GetProductList(dataSource, 0, itemsPerPage * (next + 1));
+        if (nextPage.length === newPage.length) {
+            setShowLoadMoreButton(false);
+        }
+        setPage(next);
+        setProductList(newPage);
+    }
+
     return (
         <React.Fragment>
             <Grid
@@ -81,18 +98,21 @@ const ListView = (props) => {
                         )}
                     </Grid>
                 </Grid>
-                <Grid item xs={12}>
-                    <CustomButton
-                        className={classes.loadMoreButton}
-                        mainColor="black"
-                        secondaryColor={theme.palette.secondary.main}
-                        variant="contained"
-                        borderSize={1}
-                        inverted
-                    >
-                        <b>Load More Results</b>
-                    </CustomButton>
-                </Grid>
+                {showLoadMoreButton && (
+                    <Grid item xs={12}>
+                        <CustomButton
+                            className={classes.loadMoreButton}
+                            mainColor="black"
+                            secondaryColor={theme.palette.secondary.main}
+                            variant="contained"
+                            borderSize={1}
+                            onClick={() => loadMoreResults()}
+                            inverted
+                        >
+                            <b>Load More Results</b>
+                        </CustomButton>
+                    </Grid>
+                )}
             </Grid>
         </React.Fragment>
     );
