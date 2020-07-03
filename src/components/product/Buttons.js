@@ -20,6 +20,7 @@ const Buttons = (props) => {
             >
                 <Grid item xs={1}>
                     <QuantitySelector
+                        disabled={product.stock.status === Status.OUT}
                         quantity={quantity}
                         onChange={props.modifyQuantity}
                     />

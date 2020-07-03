@@ -1,4 +1,4 @@
-import useStyles from "./styles";
+import useStyles from "./styles/styles";
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 
@@ -6,7 +6,7 @@ const Description = (props) => {
     const {
         product
     } = props;
-    const classes = useStyles();
+    const classes = useStyles(product);
     return (
         <React.Fragment>
             <Grid

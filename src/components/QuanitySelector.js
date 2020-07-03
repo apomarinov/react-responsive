@@ -41,6 +41,9 @@ const PlusButton = withStyles((theme) => ({
 }))(Button);
 
 const QuantitySelector = (props) => {
+    const {
+        disabled
+    } = props;
     const classes = useStyles();
     return (
         <div className={classes.root}>
@@ -51,6 +54,7 @@ const QuantitySelector = (props) => {
             >
                 <Grid item xs={4}>
                     <PlusButton
+                        disabled={disabled}
                         startIcon={<RemoveIcon fontSize="small"/>}
                         classes={{startIcon: classes.marginZero}}
                         onClick={() => props.onChange(-1)}
@@ -61,6 +65,7 @@ const QuantitySelector = (props) => {
                 </Grid>
                 <Grid item xs={4}>
                     <PlusButton
+                        disabled={disabled}
                         startIcon={<AddIcon fontSize="small"/>}
                         classes={{startIcon: classes.marginZero}}
                         onClick={() => props.onChange(1)}

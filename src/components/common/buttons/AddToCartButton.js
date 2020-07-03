@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) =>
 const AddToCartButton = (props) => {
     const {
         inStock,
+        noText
     } = props;
     const classes = useStyles();
     return (
@@ -34,7 +35,7 @@ const AddToCartButton = (props) => {
                         />
                     }
                 >
-                    Add to Cart
+                    {noText ? '' : 'Add to Cart'}
                 </CustomButton>
             ) : (
                 <CustomButton

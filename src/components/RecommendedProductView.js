@@ -2,7 +2,7 @@ import React from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles, isWidthDown, isWidthUp} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import ProductLarge from "./product/ProductLarge";
+import Product from "./product/Product";
 import withWidth from "@material-ui/core/withWidth";
 
 
@@ -40,7 +40,7 @@ const RecommendedProductView = (props) => {
                 <Grid container className={classes.gridList} spacing={2}>
                     {products.map((product) =>
                         <Grid key={product.id} item sm={cols}>
-                            <ProductLarge product={product}/>
+                            <Product product={product}/>
                         </Grid>
                     )}
                 </Grid>

@@ -11,10 +11,6 @@ const useStyles = makeStyles((theme) =>
         },
         marginZero: {
             margin: 0
-        },
-        invertedButton: {
-            backgroundColor: 'white',
-            border: `2px solid #${theme.colors.button.background}`
         }
     }),
 );
@@ -24,6 +20,8 @@ const StyledButton = withStyles((theme) => ({
         color: "black",
         borderRadius: '30px',
         textTransform: 'none',
+        minWidth: '78px',
+        minHeight: '40px',
         backgroundColor: theme.colors.button.background,
         '&:hover': {
             backgroundColor: theme.colors.button.background,

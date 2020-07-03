@@ -2,7 +2,7 @@ import React from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import ProductLarge from "./product/ProductLarge";
+import Product from "./product/Product";
 import RecommendedProductView from "./RecommendedProductView";
 import products from '../products.json'
 
@@ -60,7 +60,7 @@ const ProductView = (props) => {
                     >
                         {productList.map((product) =>
                             <Grid key={product.id} item xs={12} md={6} lg={12}>
-                                <ProductLarge product={product}/>
+                                <Product product={product}/>
                             </Grid>
                         )}
                     </Grid>
