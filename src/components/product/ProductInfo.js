@@ -47,6 +47,7 @@ const ProductInfo = withWidth()((props) => {
                 <SingleLineView
                     classes={classes}
                     priceDetails={priceDetails}
+                    isDesktop={isWidthDown('lg', props.width)}
                     {...props}
                 />
             )}

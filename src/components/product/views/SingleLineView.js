@@ -5,7 +5,7 @@ import PriceSegment from "../../price/PriceSegment";
 import QuantitySelector from "../../QuanitySelector";
 import AddToCartButton from "../../buttons/AddToCartButton";
 
-const SingleLineView = ({product, quantity, classes, priceDetails, modifyQuantity}) => {
+const SingleLineView = ({product, quantity, classes, priceDetails, isDesktop, modifyQuantity}) => {
     const inStock = product.stock.status !== Status.OUT;
     return (
         <React.Fragment>
@@ -53,7 +53,7 @@ const SingleLineView = ({product, quantity, classes, priceDetails, modifyQuantit
                 />
             </Grid>
             <Grid item >
-                <AddToCartButton inStock={inStock} noText/>
+                <AddToCartButton inStock={inStock} noText={isDesktop}/>
             </Grid>
         </React.Fragment>
     );

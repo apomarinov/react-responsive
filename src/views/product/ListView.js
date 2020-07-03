@@ -23,6 +23,10 @@ const useStyles = makeStyles((theme) =>
         loadMoreButton: {
             width: '100%',
         },
+        divider: {
+            marginTop: '7px',
+            marginBottom: '7px',
+        },
         [theme.breakpoints.down('md')]: {
             recommendedView: {
                 height: '230px',
@@ -83,9 +87,7 @@ const ListView = (props) => {
                 </Grid>
                 <Grid item xs={12}>
                     <Filters/>
-                </Grid>
-                <Grid item xs={12}>
-                    <Divider/>
+                    <Divider className={classes.divider}/>
                 </Grid>
                 <Grid item xs={12} className={classes.recommendedView}>
                     <RecommendedProductView products={recommendedProducts}/>

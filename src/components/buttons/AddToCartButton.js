@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) =>
         button: {
             margin: theme.spacing(1),
         },
+        minWidth: {
+                width: '140px'
+        }
     })
 );
 
@@ -21,6 +24,7 @@ const AddToCartButton = (props) => {
         noText
     } = props;
     const classes = useStyles();
+    const buttonClass = noText ? '' : classes.minWidth;
     return (
         <React.Fragment>
             {inStock ? (
@@ -39,11 +43,13 @@ const AddToCartButton = (props) => {
             ) : (
                 <CustomButton
                     variant="contained"
-                    className={classes.button}
+                    className={`${classes.button} ${buttonClass}`}
                     startIcon={<NotificationsIcon/>}
                     inverted
                     noMargin
-                />
+                >
+                    {noText ? '' : 'Notify Me!'}
+                </CustomButton>
             )}
         </React.Fragment>
     );

@@ -15,8 +15,8 @@ const Product = (props) => {
 
     const inStock = product.stock.status !== Status.OUT;
     const [quantity, setQuantity] = useState(inStock ? 1 : 0);
+    const isMobile = isWidthDown('sm', props.width);
     const isTablet = isWidthDown('md', props.width);
-
     const isTabletLandscape = isWidthUp('lg', props.width);
     const singleLineView = isTabletLandscape && !product.image;
     const classes = useStyles(product, singleLineView);
@@ -72,6 +72,7 @@ const Product = (props) => {
                         {showBottomButtons && (
                             <Grid item xs={12} className={`${classes.productInfo} ${classes.buttons}`}>
                                 <Buttons
+                                    noText={isMobile && product.image}
                                     product={product}
                                     quantity={quantity}
                                     modifyQuantity={modifyQuantity}

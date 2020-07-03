@@ -14,7 +14,12 @@ const useStyles = makeStyles((theme) =>
         chip: {
             padding: '5px',
             height: '30px'
-        }
+        },
+        [theme.breakpoints.down('sm')]: {
+            root: {
+                display: 'none',
+            },
+        },
     }),
 );
 

@@ -1,6 +1,7 @@
 import React from "react";
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+import RemoveSharpIcon from '@material-ui/icons/RemoveSharp';
 import withWidth from "@material-ui/core/withWidth";
 import {createStyles, isWidthUp} from "@material-ui/core";
 import makeStyles from "@material-ui/core/styles/makeStyles";
@@ -15,13 +16,28 @@ const useStyles = makeStyles((theme) =>
             color: theme.palette.primary.main
         },
         out: {
-            color: '#8E1216'
+            color: '#8E1216',
+            transform: "rotate(45deg)",
+        },
+        outX: {
+            position: 'absolute',
+            color: 'white',
+            transform: "rotate(133deg)",
+            fontSize: '13px',
+            top: '1px',
+            left: '1px',
         },
         icon: {
             fontSize: '15px',
         },
         iconMargin: {
             marginLeft: '30%',
+        },
+        infoText: {
+            fontSize: '0.8em',
+        },
+        depletingText: {
+            color: 'black',
         }
     }),
 );
@@ -29,7 +45,10 @@ const useStyles = makeStyles((theme) =>
 const Icons = (classes) => ({
     full: () => (<CheckCircleIcon className={`${classes.full} ${classes.icon}`} />),
     depleting: () => (<RemoveCircleIcon className={`${classes.depleting} ${classes.icon}`} />),
-    out: () => (<CheckCircleIcon className={`${classes.out} ${classes.icon}`} />),
+    out: () => (<span style={{position: 'relative'}}>
+        <RemoveCircleIcon className={`${classes.out} ${classes.icon}`} />
+        <RemoveSharpIcon className={classes.outX} />
+    </span>),
 });
 
 export const Status = {
@@ -47,9 +66,11 @@ const Stock = (props) => {
     const sameLineIcon = isTabletLandscape || data.description?.length > 0;
     const icon = Icons(classes)[data.status]();
     const marginClass = !sameLineIcon ? classes.iconMargin : '';
+    let infoClass = classes[data.status];
     let description = data.description;
     if (data.status === Status.DEPLETING) {
         description = data.quantity + description;
+        infoClass = classes.depletingText;
     }
     return (
         <React.Fragment>
@@ -61,7 +82,7 @@ const Stock = (props) => {
                 {!sameLineIcon && icon}
             </div>
             {data.description && (
-                <span className={classes[data.status]}>{description}</span>
+                <b className={`${infoClass} ${classes.infoText}`}>{description}</b>
             )}
         </React.Fragment>
     );

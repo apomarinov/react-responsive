@@ -7,6 +7,7 @@ import AddToCartButton from "../buttons/AddToCartButton";
 const Buttons = (props) => {
     const {
         quantity,
+        noText,
         product
     } = props;
     return (
@@ -26,7 +27,7 @@ const Buttons = (props) => {
                     />
                 </Grid>
                 <Grid item>
-                    <AddToCartButton inStock={product.stock.status !== Status.OUT}/>
+                    <AddToCartButton noText={noText} inStock={product.stock.status !== Status.OUT}/>
                 </Grid>
             </Grid>
         </React.Fragment>
