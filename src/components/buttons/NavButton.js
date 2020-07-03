@@ -12,11 +12,11 @@ const useStyles = makeStyles((theme) =>
         },
         text: {
             fontSize: '0.5em',
-            color: theme.colors.main,
+            color: theme.colors.navigationMain,
             marginTop: '-14px'
         },
         icon: {
-            color: theme.colors.main
+            color: theme.colors.navigationMain
         },
         button: {
             position: "relative",

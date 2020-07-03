@@ -23,7 +23,7 @@ const useStyles = (product, singleLineView = false) => {
             badgeText: {
                 position: 'absolute',
                 height: '17px',
-                backgroundColor: theme.colors.button.background,
+                backgroundColor: theme.colors.main,
                 padding: "2px 11px",
                 top: '-11px',
                 fontWeight: 'bold',
@@ -34,7 +34,7 @@ const useStyles = (product, singleLineView = false) => {
                 position: 'absolute',
                 height: '17px',
                 width: '100%',
-                backgroundColor: theme.colors.background,
+                backgroundColor: theme.colors.accent,
                 top: '0px',
             },
             productInfo: style.productInfo.default,

@@ -4,9 +4,9 @@ import IconButton from "@material-ui/core/IconButton";
 const SearchButton = withStyles((theme) => ({
     root: {
         color: "black",
-        backgroundColor: theme.colors.button.background,
+        backgroundColor: theme.colors.main,
         '&:hover': {
-            backgroundColor: theme.colors.button.background,
+            backgroundColor: theme.colors.main,
         },
     },
 }))(IconButton);

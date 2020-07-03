@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) =>
         logo: {
             height: '100%',
             width: '50px',
-            backgroundColor: theme.colors.main
+            backgroundColor: theme.colors.navigationMain
         },
         navSection: {
             height: '100%'
@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) =>
             paddingTop: '5px'
         },
         customBadge: {
-            backgroundColor: theme.colors.button.background,
+            backgroundColor: theme.colors.main,
         }
     }),
 );

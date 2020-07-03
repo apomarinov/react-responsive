@@ -22,9 +22,9 @@ const StyledButton = withStyles((theme) => ({
         textTransform: 'none',
         minWidth: '78px',
         minHeight: '40px',
-        backgroundColor: theme.colors.button.background,
+        backgroundColor: theme.colors.main,
         '&:hover': {
-            backgroundColor: theme.colors.button.background,
+            backgroundColor: theme.colors.main,
         },
     },
     startIcon: { }
@@ -33,7 +33,7 @@ const StyledButton = withStyles((theme) => ({
 const InvertedButton = withStyles((theme) => ({
     root: {
         backgroundColor: 'white',
-        border: `2px solid ${theme.colors.button.background}`,
+        border: `2px solid ${theme.colors.main}`,
         '&:hover': {
             backgroundColor: 'white',
         },
