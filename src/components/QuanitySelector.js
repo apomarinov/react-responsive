@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) =>
             width: '120px',
             height: '40px',
             paddingRight: '2px',
-            backgroundColor: theme.colors.accent
+            backgroundColor: theme.palette.secondary.main
         },
         centerText: {
             textAlign: 'center'

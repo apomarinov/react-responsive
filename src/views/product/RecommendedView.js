@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) =>
                 flexWrap: 'wrap',
                 justifyContent: 'space-around',
                 overflow: 'scroll',
-                backgroundColor: theme.colors.accent,
+                backgroundColor: theme.palette.secondary.main,
                 width: '95%',
                 position: 'absolute',
                 display: 'flex'

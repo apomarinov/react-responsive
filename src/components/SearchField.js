@@ -10,7 +10,7 @@ const useStyles = makeStyles((theme) =>
         input: {
             width: '93%',
             height: '36px',
-            border: `1px solid ${theme.colors.navigationMain}`,
+            border: `1px solid ${theme.palette.grey['400']}`,
             borderRadius: '40px',
             fontSize: '0.8em',
             paddingLeft: '15px',
@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) =>
             position: "relative",
             width: '93%',
             "& div": {
-                backgroundColor: theme.colors.main,
+                backgroundColor: theme.palette.primary.main,
                 position: "absolute",
                 right: "-16px",
                 border: "none",

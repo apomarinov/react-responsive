@@ -12,15 +12,13 @@ const useStyles = makeStyles((theme) =>
         },
         text: {
             fontSize: '0.5em',
-            color: theme.colors.navigationMain,
+            color: theme.palette.grey['500'],
             marginTop: '-14px'
         },
         icon: {
-            color: theme.colors.navigationMain
-        },
-        button: {
-            position: "relative",
-            float: "right"
+            '& button':{
+                color: theme.palette.grey['500']
+            }
         },
         [theme.breakpoints.down('xs')]: {
             text: {

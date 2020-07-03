@@ -9,6 +9,14 @@ import ListView from "./views/product/ListView";
 import Container from "@material-ui/core/Container";
 
 const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#FFA500',
+        },
+        secondary: {
+            main: '#DEDEDE',
+        },
+    },
     breakpoints: {
         values: {
             xl: 1367,
@@ -17,11 +25,6 @@ const theme = createMuiTheme({
             sm: 376,
             xs: 0
         },
-    },
-    colors: {
-        main: '#FFA500',
-        accent: '#DEDEDE',
-        navigationMain: '#9C9D9D'
     }
 })
 

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) =>
         },
         depleting: {
             transform: "rotate(90deg)",
-            color: theme.colors.main
+            color: theme.palette.primary.main
         },
         out: {
             color: '#8E1216'
