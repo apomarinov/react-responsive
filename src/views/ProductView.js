@@ -4,7 +4,7 @@ import {createStyles} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import Product from "../components/product/Product";
 import RecommendedProductView from "./RecommendedProductView";
-import products from '../products.json'
+import dataSource from '../dataSource.json'
 
 
 const useStyles = makeStyles((theme) =>
@@ -30,11 +30,11 @@ const ProductView = (props) => {
         title
     } = props;
     const classes = useStyles();
-    const recommendedProducts = products.recommended.map((product) => {
-        return Object.assign(Object.create(products.product), product);
+    const recommendedProducts = dataSource.recommended.map((product) => {
+        return Object.assign(Object.create(dataSource.product), product);
     });
-    const productList = products.list.map((product) => {
-        return Object.assign(Object.create(products.product), product);
+    const productList = dataSource.list.map((product) => {
+        return Object.assign(Object.create(dataSource.product), product);
     });
     return (
         <React.Fragment>
