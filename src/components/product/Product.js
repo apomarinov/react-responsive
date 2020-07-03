@@ -8,8 +8,6 @@ import Buttons from "./Buttons";
 import {Status} from "../Stock";
 import ProductInfo from "./ProductInfo";
 
-
-
 const Product = (props) => {
     const {
         product
@@ -64,19 +62,19 @@ const Product = (props) => {
                         )}
                         <Grid item xs={infoCols} className={classes.productInfo}>
                             <ProductInfo
-                                singleLineView={singleLineView}
                                 product={product}
                                 quantity={quantity}
-                                showBottomButtons={showBottomButtons}
                                 modifyQuantity={modifyQuantity}
+                                singleLineView={singleLineView}
+                                showBottomButtons={showBottomButtons}
                             />
                         </Grid>
                         {showBottomButtons && (
                             <Grid item xs={12} className={`${classes.productInfo} ${classes.buttons}`}>
                                 <Buttons
-                                    modifyQuantity={modifyQuantity}
-                                    quantity={quantity}
                                     product={product}
+                                    quantity={quantity}
+                                    modifyQuantity={modifyQuantity}
                                 />
                             </Grid>
                         )}
