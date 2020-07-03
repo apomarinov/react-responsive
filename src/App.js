@@ -7,7 +7,6 @@ import {
 } from '@material-ui/core/styles';
 import ListView from "./views/product/ListView";
 import Container from "@material-ui/core/Container";
-import CssBaseline from "@material-ui/core/CssBaseline";
 
 const theme = createMuiTheme({
     breakpoints: {
@@ -29,7 +28,6 @@ const theme = createMuiTheme({
 function App() {
     return (
         <div className="App">
-            <CssBaseline />
             <ThemeProvider theme={theme}>
                 <header>
                     <Navigation/>
