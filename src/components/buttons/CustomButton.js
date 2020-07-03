@@ -15,34 +15,54 @@ const useStyles = makeStyles((theme) =>
     }),
 );
 
-const StyledButton = withStyles((theme) => ({
-    root: {
-        color: "black",
-        borderRadius: '30px',
-        textTransform: 'none',
-        minWidth: '78px',
-        minHeight: '40px',
-        backgroundColor: theme.palette.primary.main,
-        '&:hover': {
-            backgroundColor: theme.palette.primary.main,
-        },
-    },
-    startIcon: { }
-}))(Button);
+const GetStyledButton = (mainColor = undefined, secondaryColor = undefined) => {
+    return withStyles((theme) => {
+        mainColor = mainColor || theme.palette.primary.main;
+        return {
+            root: {
+                color: "black",
+                borderRadius: '30px',
+                textTransform: 'none',
+                minWidth: '78px',
+                minHeight: '40px',
+                backgroundColor: mainColor,
+                '&:hover': {
+                    backgroundColor: mainColor,
+                },
+            },
+            startIcon: { }
+        }
+    })(Button)
+};
 
-const InvertedButton = withStyles((theme) => ({
-    root: {
-        backgroundColor: 'white',
-        border: `2px solid ${theme.palette.primary.main}`,
-        '&:hover': {
-            backgroundColor: 'white',
-        },
-    },
-    startIcon: { }
-}))(StyledButton);
+const GetInvertedButton = (mainColor = undefined, secondaryColor = undefined, borderSize = 2) => {
+    return withStyles((theme) => {
+        mainColor = mainColor || theme.palette.primary.main;
+        secondaryColor = secondaryColor || theme.palette.grey['50'];
+        return {
+            root: {
+                backgroundColor: secondaryColor,
+                border: `${borderSize}px solid ${mainColor}`,
+                '&:hover': {
+                    backgroundColor: secondaryColor,
+                },
+            },
+            startIcon: { }
+        }
+    })(GetStyledButton(mainColor))
+};
 
 const CustomButton = (props) => {
-    const {noMargin, inverted, ...btnProps} = props;
+    const {
+        inverted,
+        noMargin,
+        borderSize,
+        mainColor,
+        secondaryColor,
+        ...btnProps
+    } = props;
+    const StyledButton = GetStyledButton(mainColor);
+    const InvertedButton = GetInvertedButton(mainColor, secondaryColor, borderSize);
     const classes = useStyles();
     let btnClass = classes.marginLeft;
     if (props.children || noMargin) {

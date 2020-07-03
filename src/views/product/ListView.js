@@ -6,6 +6,8 @@ import Product from "../../components/product/Product";
 import RecommendedProductView from "./RecommendedView";
 import dataSource from '../../dataSource.json'
 import withWidth from "@material-ui/core/withWidth";
+import CustomButton from "../../components/buttons/CustomButton";
+import { withTheme } from '@material-ui/core/styles';
 
 
 const useStyles = makeStyles((theme) =>
@@ -15,6 +17,9 @@ const useStyles = makeStyles((theme) =>
         },
         title: {
             fontSize: '22px',
+        },
+        loadMoreButton: {
+            width: '100%',
         },
         [theme.breakpoints.down('md')]: {
             recommendedView: {
@@ -31,10 +36,10 @@ const useStyles = makeStyles((theme) =>
 
 const ListView = (props) => {
     const {
-        title
+        title,
+        theme
     } = props;
     const classes = useStyles();
-
     let page = 1;
     let itemsPerPage = 3;
     if (isWidthUp('md', props.width) && isWidthDown('md', props.width)) {
@@ -76,9 +81,21 @@ const ListView = (props) => {
                         )}
                     </Grid>
                 </Grid>
+                <Grid item xs={12}>
+                    <CustomButton
+                        className={classes.loadMoreButton}
+                        mainColor="black"
+                        secondaryColor={theme.palette.secondary.main}
+                        variant="contained"
+                        borderSize={1}
+                        inverted
+                    >
+                        <b>Load More Results</b>
+                    </CustomButton>
+                </Grid>
             </Grid>
         </React.Fragment>
     );
 }
 
-export default withWidth()(ListView);
+export default withTheme(withWidth()(ListView));

@@ -26,7 +26,6 @@ const AddToCartButton = (props) => {
             {inStock ? (
                 <CustomButton
                     variant="contained"
-                    color="default"
                     className={classes.button}
                     startIcon={
                         <IconSuperscript
@@ -40,7 +39,6 @@ const AddToCartButton = (props) => {
             ) : (
                 <CustomButton
                     variant="contained"
-                    color="default"
                     className={classes.button}
                     startIcon={<NotificationsIcon/>}
                     inverted
