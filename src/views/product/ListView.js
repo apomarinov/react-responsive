@@ -2,9 +2,9 @@ import React from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import Product from "../components/product/Product";
-import RecommendedProductView from "./RecommendedProductView";
-import dataSource from '../dataSource.json'
+import Product from "../../components/product/Product";
+import RecommendedProductView from "./RecommendedView";
+import dataSource from '../../dataSource.json'
 
 
 const useStyles = makeStyles((theme) =>
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) =>
     }),
 );
 
-const ProductView = (props) => {
+const ListView = (props) => {
     const {
         title
     } = props;
@@ -70,4 +70,4 @@ const ProductView = (props) => {
     );
 }
 
-export default ProductView;
+export default ListView;

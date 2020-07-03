@@ -5,7 +5,7 @@ import {
     createMuiTheme,
     ThemeProvider,
 } from '@material-ui/core/styles';
-import ProductView from "./views/ProductView";
+import ListView from "./views/product/ListView";
 import Container from "@material-ui/core/Container";
 
 const theme = createMuiTheme({
@@ -36,7 +36,7 @@ function App() {
                 </header>
                 <main>
                     <Container disableGutters={false} maxWidth={false}>
-                        <ProductView title="Recommended Products"/>
+                        <ListView title="Recommended Products"/>
                     </Container>
                 </main>
             </ThemeProvider>

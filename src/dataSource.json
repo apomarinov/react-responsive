@@ -73,7 +73,8 @@
       "image": null,
       "stock": {
         "status": "full"
-      }
+      },
+      "discount": null
     },
     {
       "id":  14,
@@ -82,7 +83,8 @@
       "stock":  {
         "status": "out",
         "description": "Back in 1 week!"
-      }
+      },
+      "discount": null
     },
     {
       "id":  15,
@@ -90,7 +92,122 @@
       "image": null,
       "stock":  {
         "status": "full"
+      },
+      "discount": null
+    },
+    {
+      "id":  16,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "full"
+      },
+      "discount": null
+    },
+    {
+      "id":  17,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "full"
+      },
+      "discount": null
+    },
+    {
+      "id":  18,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "depleting",
+        "description": " Tires left",
+        "quantity": 3
+      },
+      "discount": null
+    },
+    {
+      "id":  19,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "full"
+      },
+      "discount": null
+    },
+    {
+      "id":  20,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "depleting",
+        "description": " Tires left",
+        "quantity": 8
       }
+    },
+    {
+      "id":  21,
+      "isApproved": true,
+      "image": null,
+      "stock": {
+        "status": "full"
+      },
+      "discount": null
+    },
+    {
+      "id":  22,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "out",
+        "description": "Back in 1 week!"
+      },
+      "discount": null
+    },
+    {
+      "id":  23,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "full"
+      },
+      "discount": null
+    },
+    {
+      "id":  24,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "full"
+      },
+      "discount": null
+    },
+    {
+      "id":  25,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "full"
+      },
+      "discount": null
+    },
+    {
+      "id":  26,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "depleting",
+        "description": " Tires left",
+        "quantity": 3
+      },
+      "discount": null
+    },
+    {
+      "id":  27,
+      "isApproved": true,
+      "image": null,
+      "stock":  {
+        "status": "full"
+      },
+      "discount": null
     }
   ]
 }

@@ -2,7 +2,7 @@ import React from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles, isWidthDown, isWidthUp} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import Product from "../components/product/Product";
+import Product from "../../components/product/Product";
 import withWidth from "@material-ui/core/withWidth";
 
 
@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) =>
     }),
 );
 
-const RecommendedProductView = (props) => {
+const RecommendedView = (props) => {
     const classes = useStyles();
     const isTablet = isWidthUp('md', props.width);
     const cols = isTablet ? 6 : 12;
@@ -49,4 +49,4 @@ const RecommendedProductView = (props) => {
     );
 }
 
-export default withWidth()(RecommendedProductView);
+export default withWidth()(RecommendedView);
