@@ -5,36 +5,10 @@ import Paper from "@material-ui/core/Paper";
 import withWidth from "@material-ui/core/withWidth";
 import useStyles from "./styles/styles";
 import Buttons from "./Buttons";
-import Details from "./Details";
-import DetailsLarge from "./DetailsLarge";
-import QuantitySelector from "../QuanitySelector";
-import AddToCartButton from "../buttons/AddToCartButton";
-import Stock, {Status} from "../Stock";
-import PriceSegment from "../price/PriceSegment";
+import {Status} from "../Stock";
+import ProductInfo from "./ProductInfo";
 
-const getPriceDetails = (product, quantity, singleLinePrice) => {
-    let useSingleLineTotal = false;
-    const price = product.price.value;
-    const currency = product.price.currency;
-    let total = price * quantity;
-    let savingsText = null;
-    if (quantity >= product.discount?.condition?.quantity) {
-        useSingleLineTotal = true;
-        let savings = total;
-        total *= product.discount.modifier;
-        savings -= total;
-        savingsText = `Save ${currency + savings}!`;
-    }
-    const priceText = currency + price;
-    const totalText = currency + total;
-    return {
-        singleLinePrice,
-        priceText,
-        useSingleLineTotal,
-        totalText,
-        savingsText
-    };
-}
+
 
 const Product = (props) => {
     const {
@@ -44,10 +18,10 @@ const Product = (props) => {
     const inStock = product.stock.status !== Status.OUT;
     const [quantity, setQuantity] = useState(inStock ? 1 : 0);
     const isTablet = isWidthDown('md', props.width);
+
     const isTabletLandscape = isWidthUp('lg', props.width);
     const singleLineView = isTabletLandscape && !product.image;
     const classes = useStyles(product, singleLineView);
-    const priceDetails = getPriceDetails(product, quantity, !isTablet);
     const showBottomButtons = isTablet && product.image || isTablet && !product.image;
     const infoCols = product.image ? 8 : 12;
     const rootClass = !product.image ? classes.noImageHeight : '';
@@ -89,110 +63,13 @@ const Product = (props) => {
                             </Grid>
                         )}
                         <Grid item xs={infoCols} className={classes.productInfo}>
-                            <Grid
-                                container
-                                direction={product.image ? "column" : "row"}
-                                alignItems={singleLineView ? "center" : "stretch"}
-                                justify="space-between"
-                                spacing={1}
-                            >
-                                {/* can combine this in DetailsLarge */}
-                                {product.image && (
-                                    <React.Fragment>
-                                        <Grid item>
-                                            <strong className={classes.name}><u>{product.name}</u></strong>
-                                        </Grid>
-                                        <Grid item>
-                                            <DetailsLarge
-                                                priceDetails={priceDetails}
-                                                quantity={quantity}
-                                                product={product}
-                                            />
-                                        </Grid>
-                                        {!showBottomButtons && (
-                                            <Grid item>
-                                                <Buttons
-                                                    modifyQuantity={modifyQuantity}
-                                                    product={product}
-                                                    quantity={quantity}
-                                                />
-                                            </Grid>
-                                        )}
-                                    </React.Fragment>
-                                )}
-                                {!product.image && !singleLineView && (
-                                    <React.Fragment>
-                                        <Grid item xs={7}>
-                                            <strong className={classes.name}><u>{product.name}</u></strong>
-                                        </Grid>
-                                        <Grid item xs={5}>
-                                            {product.descriptionShort}
-                                        </Grid>
-                                        {product.isApproved && (
-                                            <Grid item xs={3}>
-                                                <img
-                                                    src="/images/approved.png"
-                                                    alt="Approved product"
-                                                    className={classes.approved}
-                                                />
-                                            </Grid>
-                                        )}
-                                        <Grid item xs={9} lg={6}>
-                                            <Details product={product} quantity={quantity} price={priceDetails}/>
-                                        </Grid>
-                                    </React.Fragment>
-                                )}
-                                {singleLineView && (
-                                    <React.Fragment>
-                                        <Grid item xs={2}>
-                                            <strong className={classes.name}><u>{product.name}</u></strong>
-                                        </Grid>
-                                        {product.isApproved && (
-                                            <Grid item xs={1}>
-                                                <img
-                                                    src="/images/approved.png"
-                                                    alt="Approved product"
-                                                    className={classes.approved}
-                                                />
-                                            </Grid>
-                                        )}
-                                        <Grid item xs={2}>
-                                            {product.descriptionShort}
-                                        </Grid>
-                                        <Grid item xs={1}>
-                                            <Stock data={product.stock}/>
-                                        </Grid>
-                                        <Grid item xs={1}>
-                                            <PriceSegment
-                                                label="Price"
-                                                singleLine={priceDetails.singleLinePrice}
-                                                text={priceDetails.priceText}
-                                            />
-                                        </Grid>
-                                        <Grid item xs={1}>
-                                            <QuantitySelector
-                                                disabled={!inStock}
-                                                quantity={quantity}
-                                                onChange={modifyQuantity}
-                                            />
-                                        </Grid>
-                                        <Grid item/>
-                                        <Grid item xs={1}>
-                                            <PriceSegment
-                                                label="Total"
-                                                singleLine
-                                                boldValue
-                                                text={priceDetails.totalText}
-                                                infoText={priceDetails.savingsText}
-                                                infoColor="red"
-                                            />
-                                        </Grid>
-                                        <Grid item >
-                                            <AddToCartButton inStock={inStock} noText/>
-                                        </Grid>
-                                    </React.Fragment>
-                                )}
-                            </Grid>
+                            <ProductInfo
+                                singleLineView={singleLineView}
+                                product={product}
+                                quantity={quantity}
+                                showBottomButtons={showBottomButtons}
+                                modifyQuantity={modifyQuantity}
+                            />
                         </Grid>
                         {showBottomButtons && (
                             <Grid item xs={12} className={`${classes.productInfo} ${classes.buttons}`}>
