@@ -31,6 +31,7 @@ const ProductInfo = withWidth()((props) => {
                 <ImageView
                     classes={classes}
                     isTablet={isTablet}
+                    priceDetails={priceDetails}
                     {...props}
                 />
             )}
