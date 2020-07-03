@@ -12,7 +12,18 @@ const useStyles = makeStyles((theme) =>
         boldValue: {
             fontWeight: 'bold',
             fontSize: '1.5em'
-        }
+        },
+        [theme.breakpoints.down('xs')]: {
+            boldValue: {
+                fontSize: '0.8em'
+            },
+            text: {
+                fontSize: '0.8em'
+            },
+            info: {
+                fontSize: '0.8em'
+            },
+        },
     }),
 );
 
@@ -27,7 +38,7 @@ const PriceSegment = (props) => {
         infoColor,
     } = props;
     const classes = useStyles();
-    const textClass = boldValue ? classes.boldValue : '';
+    const textClass = boldValue ? classes.boldValue : classes.text;
     return (
         <React.Fragment>
             <Grid item>
@@ -46,7 +57,7 @@ const PriceSegment = (props) => {
                     </span>
                 )}
                 {singleLine && (
-                    <span style={{color: infoColor}}>
+                    <span style={{color: infoColor}} className={classes.info}>
                         {infoText}
                     </span>
                 )}

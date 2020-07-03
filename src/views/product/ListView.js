@@ -8,7 +8,8 @@ import dataSource from '../../dataSource.json'
 import withWidth from "@material-ui/core/withWidth";
 import CustomButton from "../../components/buttons/CustomButton";
 import { withTheme } from '@material-ui/core/styles';
-
+import Filters from "../../components/Filters";
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) =>
     createStyles({
@@ -17,6 +18,7 @@ const useStyles = makeStyles((theme) =>
         },
         title: {
             fontSize: '22px',
+            margin: '15px 0 0 0'
         },
         loadMoreButton: {
             width: '100%',
@@ -80,7 +82,10 @@ const ListView = (props) => {
                     <h1 className={classes.title}>{title}</h1>
                 </Grid>
                 <Grid item xs={12}>
-                    <div style={{width:'100%', height: '60px', backgroundColor: 'red'}}>filters</div>
+                    <Filters/>
+                </Grid>
+                <Grid item xs={12}>
+                    <Divider/>
                 </Grid>
                 <Grid item xs={12} className={classes.recommendedView}>
                     <RecommendedProductView products={recommendedProducts}/>
