@@ -3,7 +3,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles, isWidthDown} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import withWidth from "@material-ui/core/withWidth";
-import SearchButton from "./common/buttons/SearchButton";
+import SearchButton from "./buttons/SearchButton";
 
 const useStyles = makeStyles((theme) =>
     createStyles({

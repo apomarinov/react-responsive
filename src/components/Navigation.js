@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles, isWidthDown} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import NavButton from "./common/buttons/NavButton";
+import NavButton from "./buttons/NavButton";
 import PersonIcon from '@material-ui/icons/Person';
 import DescriptionSharpIcon from '@material-ui/icons/DescriptionSharp';
 import ShoppingCartSharpIcon from '@material-ui/icons/ShoppingCartSharp';

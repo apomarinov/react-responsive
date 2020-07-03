@@ -2,7 +2,7 @@ import React from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import Product from "./product/Product";
+import Product from "../components/product/Product";
 import RecommendedProductView from "./RecommendedProductView";
 import products from '../products.json'
 

@@ -2,7 +2,7 @@ import React from 'react';
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import {createStyles, isWidthDown, isWidthUp} from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
-import Product from "./product/Product";
+import Product from "../components/product/Product";
 import withWidth from "@material-ui/core/withWidth";
 
 

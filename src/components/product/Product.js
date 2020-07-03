@@ -8,9 +8,9 @@ import Buttons from "./Buttons";
 import Details from "./Details";
 import DetailsLarge from "./DetailsLarge";
 import QuantitySelector from "../QuanitySelector";
-import AddToCartButton from "../common/buttons/AddToCartButton";
-import Stock, {Status} from "../common/Stock";
-import PriceSegment from "../common/price/PriceSegment";
+import AddToCartButton from "../buttons/AddToCartButton";
+import Stock, {Status} from "../Stock";
+import PriceSegment from "../price/PriceSegment";
 
 const getPriceDetails = (product, quantity, singleLinePrice) => {
     let useSingleLineTotal = false;

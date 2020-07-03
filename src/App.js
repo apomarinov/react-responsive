@@ -5,7 +5,7 @@ import {
     createMuiTheme,
     ThemeProvider,
 } from '@material-ui/core/styles';
-import ProductView from "./components/ProductView";
+import ProductView from "./views/ProductView";
 import Container from "@material-ui/core/Container";
 
 const theme = createMuiTheme({

@@ -1,8 +1,8 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import QuantitySelector from "../QuanitySelector";
-import {Status} from "../common/Stock";
-import AddToCartButton from "../common/buttons/AddToCartButton";
+import {Status} from "../Stock";
+import AddToCartButton from "../buttons/AddToCartButton";
 
 const Buttons = (props) => {
     const {

@@ -2,9 +2,9 @@ import withWidth from "@material-ui/core/withWidth";
 import {createStyles, isWidthDown} from "@material-ui/core";
 import React from "react";
 import Grid from "@material-ui/core/Grid";
-import Stock from "../common/Stock";
-import Price from "../common/price/Price";
-import PriceSegment from "../common/price/PriceSegment";
+import Stock from "../Stock";
+import Price from "../price/Price";
+import PriceSegment from "../price/PriceSegment";
 
 
 const Details = withWidth()((props) => {
